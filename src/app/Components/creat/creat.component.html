@@ -1,0 +1,49 @@
+<div class="container">
+    <br>
+<h1>Add employee</h1>
+<br>
+
+<div class="form-group">
+
+</div>
+    <div class="form-group" hidden>
+       <label>ID</label> 
+        <input class="form-control"  type="text" name="id" placeholder="id" [(ngModel)]="id"><br>
+    </div>
+    <div class="form-group">
+        <label> Name :</label>
+      <input class="form-control" required type="text" name="name" placeholder="Name" [(ngModel)]="name"><br>
+    </div>
+
+    <div class="form-group">
+        <label>Mobile : </label>
+          <input class="form-control" type="text" name="mobile" placeholder="mobile" [(ngModel)]="mobile"><br>
+    </div>
+    <div class="form-group">
+        <label> Email:</label>
+        <input type="email" #firstEmail="ngModel" placeholder="example@domain.com" [class.is-invalid]="firstEmail.invalid && firstEmail.touched" required
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" name="primaryEmail"
+          
+          [(ngModel)]="email" />
+    
+        <div *ngIf="firstEmail.errors && (firstEmail.invalid || firstEmail.touched)">
+          <small class="text-danger" *ngIf="firstEmail.errors.required">Primary email is required</small>
+          <small class="text-danger" *ngIf="firstEmail.errors.pattern">Please provide a valid email address</small>
+        </div>
+      </div>
+
+    <div class="form-group">
+        <label>Salary :</label>
+          <input class="form-control" type="text" name="salary" placeholder="salary" [(ngModel)]="salary"><br>
+    </div>
+    <div class="form-group">
+
+        <div *ngIf="firstEmail.errors && (firstEmail.invalid || firstEmail.touched);">
+        <input type="button"  *ngIf="firstEmail.errors.required||firstEmail.errors.pattern" class="btn btn-success" value="Add New Employee">  
+        </div>
+        
+        <div *ngIf="(firstEmail.valid);">
+            <input type="button" class="btn btn-success" value="Add New Employee" (click)="Add()">  
+            </div>
+        </div>
+</div>

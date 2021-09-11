@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <h2>Employees</h2>
+  <a routerLink="/add">
+    <input type="button" class="btn btn-success" value="ADD new Employee">
+  </a>
+  <br>
+  <br>
+
+  <table class="table table-hover table-border">
+    <thead>
+      <tr class="border table-primary">
+        <th scope="col">NAME</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Email</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Taxs</th>
+        <th scope="col">Net Salary</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of employees" class="table-light">
+        <td>{{e.name}}</td>
+        <td>{{e.mobile}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.salary.toFixed(2)}} LE</td>
+        <td> {{(e.salary*.1).toFixed(2)}} LE</td>
+        <td>{{(e.salary*.9).toFixed(2)}} LE</td>
+        <td>
+          <a routerLink="/details/{{e.id}}" class="btn btn-primary ">Details  </a>
+       </td>
+       <td>
+        <a routerLink="/edit/{{e.id}}" class="btn btn-info">Edit  </a>
+     </td>
+     <td>
+      <a class="btn btn-danger btn-sm" (click)="delete(e.id)">Delete</a>
+   </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

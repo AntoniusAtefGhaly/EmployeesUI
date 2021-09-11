@@ -1,0 +1,27 @@
+
+<div class="container">
+    <br>
+    <br>
+    <br>
+
+
+
+    <div *ngIf="employee == '[object Object]';else NoData">
+        <div class="card border-primary mb-6" style="max-width: 50rem;">
+            <div class="card-header"><h2>{{employee.name}}</h2></div>
+            <div class="card-body">
+                <h2> <strong>ID :</strong> {{employee.id}} </h2> 
+                <h2>  <strong>Mobile : </strong>{{employee.mobile}}</h2>
+                <h2> <strong>Email : </strong>{{employee.email}}</h2>
+                <h2> <strong>Salary : </strong>{{employee.salary}}</h2>
+                <h2> <strong>Net salary : </strong>{{employee.salary*.9}}</h2>    
+            </div>
+          </div>
+        </div>
+    <ng-template #NoData>
+      <div style="text-align: center;">
+        Please Wait...
+      </div>
+    </ng-template>
+</div>
+
